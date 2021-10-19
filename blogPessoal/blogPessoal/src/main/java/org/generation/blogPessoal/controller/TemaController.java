@@ -1,5 +1,4 @@
 package org.generation.blogPessoal.controller;
-
 import java.util.List;
 
 import org.generation.blogPessoal.model.Tema;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 
 @RestController
@@ -37,9 +37,9 @@ public class TemaController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/descricao/{descricao}")
-	public ResponseEntity<List<Tema>> getByName(@PathVariable String descricao){
-		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Tema>> getByName(@PathVariable String nome){
+		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(nome));
 	}
 	
 	@PostMapping
